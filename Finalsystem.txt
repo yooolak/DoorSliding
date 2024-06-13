@@ -1,0 +1,49 @@
+HTML
+
+<div class="sliding-doors">
+  <div class="door door-left"></div>
+  <div class="door door-right"></div>
+</div>
+
+
+CSS
+
+.sliding-doors {
+  position: relative;
+  height: 200px;
+  width: 400px;
+  overflow: hidden;
+}
+
+.door {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: violet;
+  transition: all 0.5s ease;
+}
+
+.door-left {
+  left: 0;
+}
+
+.door-right {
+  right: 0;
+  background-color: pink;
+}
+
+JS
+
+const slidingDoors = document.querySelector('.sliding-doors');
+const doorLeft = document.querySelector('.door-left');
+const doorRight = document.querySelector('.door-right');
+
+slidingDoors.addEventListener('mouseenter', () => {
+  doorLeft.style.transform = 'translateX(-50%)';
+  doorRight.style.transform = 'translateX(50%)';
+});
+
+slidingDoors.addEventListener('mouseleave', () => {
+  doorLeft.style.transform = 'translateX(0)';
+  doorRight.style.transform = 'translateX(0)';
+});
